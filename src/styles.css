@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    /* Yıldırım animasyon yolu */
+    .lightning-path {
+      stroke: rgba(255, 255, 255, 0.9);
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 150; /* Çizginin uzunluğu */
+      stroke-dashoffset: 150; /* Çizgi dışarıda başlar */
+      animation: lightning-path 0.5s linear infinite alternate; /* Animasyon tanımı */
+    }
+  
+    /* Yıldırım arka plan parlaması */
+    .lightning-animation {
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.7) 0%,
+        transparent 70%
+      );
+      animation: lightning-flash 1s infinite;
+    }
+  
+    @keyframes lightning-path {
+      to {
+        stroke-dashoffset: 0; /* Çizgi görünür hale gelir */
+      }
+    }
+  
+    @keyframes lightning-flash {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  }
