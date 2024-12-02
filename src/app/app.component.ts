@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         setTimeout(() => {
           this.isLoading = false; // Yükleme tamamlandı
-        }, 500); // Animasyonun görünmesi için kısa bir gecikme
+        }); // Animasyonun görünmesi için kısa bir gecikme
       }
     });
   }

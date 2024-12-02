@@ -21,12 +21,16 @@
                                 <div>
                                     <h2 class="text-2xl font-bold leading-8 tracking-tight"><a
                                             class="text-gray-900 dark:text-gray-100"
-                                            [routerLink]="['/detail', item.id]">{{item.title}} <p>
+                                            href="/blog/release-of-tailwind-nextjs-starter-blog-v2.0">{{item.title}} <p>
                                                 {{item.tagName}}</p></a>
                                     </h2>
                                     <div class="flex flex-wrap"><a
                                             class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                                            [routerLink]="['/tags']">{{item.tag.name}}</a></div>
+                                            [routerLink]="['/tags']">{{item.tagName}}</a></div>
+
+                                    <div class="flex flex-wrap"><a
+                                            class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                            [routerLink]="['/tags']">{{item.categoryNames}}</a></div>
                                 </div>
                                 <div class="prose max-w-none text-gray-500 dark:text-gray-400">{{item.description}}
                                 </div>

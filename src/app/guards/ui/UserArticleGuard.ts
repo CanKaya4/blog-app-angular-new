@@ -10,6 +10,19 @@ export const resolveGuard: ResolveFn<any> = (route, state) => {
     const pageNumber = parseInt(route.queryParamMap.get('pageNumber') || '1', 10);
     const pageSize = parseInt(route.queryParamMap.get('pageSize') || '5', 10);
 
-    return articleService.getPagedArticles(pageNumber, pageSize).pipe(delay(1000));
+    return articleService.getPagedArticles(pageNumber, pageSize).pipe(delay(500));
+
+}
+
+export const resolveGuardDetail: ResolveFn<any> = (route, state) => {
+    const articleService = inject(ArticleService);
+
+    const id = route.paramMap.get('id');
+    if (id) {
+        return articleService.getArticleById(Number(id)).pipe(delay(500))
+    }
+    else {
+        throw new Error('Article Id not Found');
+    }
 
 }

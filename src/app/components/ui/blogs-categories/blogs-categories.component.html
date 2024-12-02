@@ -3,9 +3,13 @@
     <div class="px-6 py-4">
         <h3 class="font-bold uppercase text-primary-500">Tüm Kategoriler</h3>
         <ul>
-            <li *ngFor="let item of categories" class="my-3"><a
+            <li *ngFor="let item of categories" class="my-3">
+                <a [routerLink]="['/categories', item.id]"
                     class="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
-                    aria-label="View posts tagged next-js" href="/tags/next-js">{{item.categoryName}}</a></li>
+                    aria-label="View posts tagged  ">
+                    {{ item.categoryName }} {{item.id}}
+                </a>
+            </li>
         </ul>
     </div>
 </div>

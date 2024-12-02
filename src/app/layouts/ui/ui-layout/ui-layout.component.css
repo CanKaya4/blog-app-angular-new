@@ -1,0 +1,67 @@
+/* Tema geçişi için genel geçiş animasyonu */
+html {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  /* Arka plan ve metin rengi için tema özelliklerini ayarlama */
+  body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  /* Aydınlık mod stili */
+  .bg-light {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Karanlık mod stili */
+  .dark .bg-light {
+    background-color: #1a202c; /* Karanlık arka plan */
+    color: white;
+  }
+  
+  /* Tailwind'in varsayılan animasyon geçişlerine ek olarak animasyonlar */
+  
+  /* Örneğin, butonun rengi değiştiğinde animasyon ekleyelim */
+  button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Aydınlık modda butonun hover rengini değiştirir */
+    transform: scale(1.05);
+  }
+  
+  /* Özel animasyonlar ekleyebilirsiniz */
+  .lightning-path {
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 150; /* Çizginin uzunluğu */
+    stroke-dashoffset: 150; /* Çizgi dışarıda başlar */
+    animation: lightning-path 0.5s linear infinite alternate;
+  }
+  
+  .lightning-animation {
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 70%
+    );
+    animation: lightning-flash 1s infinite;
+  }
+  
+  @keyframes lightning-path {
+    to {
+      stroke-dashoffset: 0; /* Çizgi görünür hale gelir */
+    }
+  }
+  
+  @keyframes lightning-flash {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }

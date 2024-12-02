@@ -20,6 +20,7 @@ export class BlogsCategoriesComponent implements OnInit {
   loadCategories(): void {
     this.categoryService.getAllCategories().subscribe((data) => {
       this.categories = data
+      console.log(this.categories)
     }, (error) => {
       console.log("category error :", error)
     })

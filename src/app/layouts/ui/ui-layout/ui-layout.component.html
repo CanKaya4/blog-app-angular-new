@@ -32,24 +32,32 @@
                     class="block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
                     routerLink="tags">Etiketler</a><a
                     class="block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-                    href="/projects">Projelerim</a><a
+                    routerLink="projects">Projelerim</a><a
                     class="block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
                     routerLink="about">Hakkımda</a>
-            </div><button aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="1.5" stroke="currentColor"
-                    class="h-6 w-6 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
-                </svg></button>
+            </div>
+            <div class="relative">
+                <input type="text" [(ngModel)]="searchTerm" placeholder="Search articles..."
+                    class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:bg-gray-800 dark:text-white" />
+                <button aria-label="Search" (click)="onSearch()"
+                    class="absolute top-0 left-0 mt-2 ml-2 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+                    </svg>
+                </button>
+            </div>
+
             <div class="mr-5 flex items-center">
-                <div class="relative inline-block text-left" data-headlessui-state="">
+                <div class="relative inline-block text-left">
                     <div class="flex items-center justify-center hover:text-primary-500 dark:hover:text-primary-400">
-                        <button aria-label="Theme switcher" id="headlessui-menu-button-:Rtpkqlb:" type="button"
-                            aria-haspopup="menu" aria-expanded="false" data-headlessui-state=""><svg
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        <button aria-label="Theme switcher" (click)="toggleTheme()" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="group:hover:text-gray-100 h-6 w-6">
                                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                            </svg></button>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div><button aria-label="Toggle Menu" class="sm:hidden"><svg xmlns="http://www.w3.org/2000/svg"
@@ -65,14 +73,14 @@
     <footer>
         <div class="mt-16 flex flex-col items-center">
             <div class="mb-3 flex space-x-4"><a class="text-sm text-gray-500 transition hover:text-gray-600"
-                    target="_blank" rel="noopener noreferrer" href="mailto:address@yoursite.com"><span
+                    target="_blank" rel="noopener noreferrer" href="mailto:alikaya4275@gmail.com"><span
                         class="sr-only">mail</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                         class="fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-6 w-6">
                         <title>Mail</title>
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg></a><a class="text-sm text-gray-500 transition hover:text-gray-600" target="_blank"
-                    rel="noopener noreferrer" href="https://github.com"><span class="sr-only">github</span><svg
+                    rel="noopener noreferrer" href="https://github.com/CanKaya4"><span class="sr-only">github</span><svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         class="fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-6 w-6">
                         <title>GitHub</title>
@@ -88,16 +96,16 @@
                             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
                         </path>
                     </svg></a><a class="text-sm text-gray-500 transition hover:text-gray-600" target="_blank"
-                    rel="noopener noreferrer" href="https://youtube.com"><span class="sr-only">youtube</span><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    rel="noopener noreferrer" href="https://www.youtube.com/@alikaya7612"><span
+                        class="sr-only">youtube</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         class="fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-6 w-6">
                         <title>Youtube</title>
                         <path
                             d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 00-2.088 2.09A31.258 31.26 0 000 12.01a31.258 31.26 0 00.523 5.785 3.008 3.008 0 002.088 2.089c1.869.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.09 31.258 31.26 0 00.5-5.784 31.258 31.26 0 00-.5-5.808zm-13.891 9.4V8.407l6.266 3.604z">
                         </path>
                     </svg></a><a class="text-sm text-gray-500 transition hover:text-gray-600" target="_blank"
-                    rel="noopener noreferrer" href="https://www.linkedin.com"><span class="sr-only">linkedin</span><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    rel="noopener noreferrer" href="https://www.linkedin.com/in/alican-kaya-53445b24b/"><span
+                        class="sr-only">linkedin</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         class="fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-6 w-6">
                         <title>Linkedin</title>
                         <path
@@ -145,14 +153,13 @@
                         </path>
                     </svg></a></div>
             <div class="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                <div>Tails Azimuth</div>
+                <div>Ali Kaya</div>
                 <div> • </div>
                 <div>© 2024</div>
-                <div> • </div><a class="break-words" href="/">Next.js Starter Blog</a>
+                <div> • </div><a class="break-words" href="/">Ali Kaya Blog</a>
             </div>
             <div class="mb-8 text-sm text-gray-500 dark:text-gray-400"><a class="break-words" target="_blank"
-                    rel="noopener noreferrer" href="https://github.com/timlrx/tailwind-nextjs-starter-blog">Tailwind
-                    Nextjs Theme</a></div>
+                    rel="noopener noreferrer" href="https://github.com/CanKaya4"></a></div>
         </div>
     </footer>
 </section>
